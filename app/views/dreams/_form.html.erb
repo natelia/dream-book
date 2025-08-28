@@ -1,0 +1,11 @@
+<%= simple_form_for dream, html: { class: "dream form" } do |f| %>
+  <% if dream.errors.any? %>
+    <div class="error-message">
+      <%= dream.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <%= f.input :name, input_html: { autofocus: true } %>
+  <%= f.submit @dream.new_record? ? "Create dream" : "Update dream", class: "btn btn--secondary" %>
+
+<% end %>

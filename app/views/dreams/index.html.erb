@@ -1,0 +1,8 @@
+<main class="container">
+  <div class="header">
+    <h1>Dreams</h1>
+    <%= link_to "New dream", new_dream_path, class: "btn btn--primary" %>
+  </div>
+
+  <%= render @dreams %>
+</main>

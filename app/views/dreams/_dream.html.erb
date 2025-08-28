@@ -1,0 +1,7 @@
+<div class="dream">
+  <%= link_to dream.name, dream_path(dream) %>
+  <div class="dream__actions">
+    <%= button_to "Delete", dream_path(dream), method: :delete, class: "btn btn--light" %>
+    <%= link_to "Edit", edit_dream_path(dream), class: "btn btn--light" %>
+  </div>
+</div>

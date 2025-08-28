@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to dream"), dream_path(@dream) %>
+
+  <div class="header">
+    <h1>Edit dream</h1>
+  </div>
+
+  <%= render "form", dream: @dream %>
+</main>

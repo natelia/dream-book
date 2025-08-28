@@ -1,0 +1,6 @@
+{
+    "ruby.rubocop.onSave": false,
+    "ruby.lint": {
+        "rubocop": false
+    }
+}
