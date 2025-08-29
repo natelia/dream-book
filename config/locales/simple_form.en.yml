@@ -1,14 +1,14 @@
 en:
   simple_form:
     placeholders:
-      quote:
+      dream:
         name: Name of your dream
     labels:
-      quote:
+      dream:
         name: Name
 
   helpers:
     submit:
-      quote:
+      dream:
         create: Create dream
         update: Update dream

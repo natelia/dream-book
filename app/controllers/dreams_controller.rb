@@ -2,7 +2,7 @@ class DreamsController < ApplicationController
   before_action :set_dream, only: [:show, :edit, :update, :destroy]
 
   def index
-    @dreams = Dream.all
+    @dreams = Dream.ordered.first
   end
 
   def show
@@ -13,12 +13,15 @@ class DreamsController < ApplicationController
   end
 
   def create
-    @dream = Dream.new(dream_params)
+  @dream = Dream.new(dream_params)
 
-    if @dream.save
-      redirect_to dreams_path, notice: "Dream was successfully created."
-    else
-      render :new, status: :unprocessable_entity
+  if @dream.save
+    respond_to do |format|
+      format.html { redirect_to dreams_path, notice: "dream was successfully created." }
+      format.turbo_stream
+    end
+  else
+    render :new, status: :unprocessable_entity
     end
   end
 
@@ -35,7 +38,11 @@ class DreamsController < ApplicationController
 
   def destroy
     @dream.destroy
-    redirect_to dreams_path, notice: "Dream was successfully destroyed."
+
+    respond_to do |format|
+    format.html { redirect_to dreams_path, notice: "Dream was successfully destroyed." }
+    format.turbo_stream
+    end
   end
 
    private

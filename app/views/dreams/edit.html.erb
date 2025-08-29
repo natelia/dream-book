@@ -5,5 +5,7 @@
     <h1>Edit dream</h1>
   </div>
 
-  <%= render "form", dream: @dream %>
+  <%= turbo_frame_tag @dream do %>
+    <%= render "form", dream: @dream %>
+  <% end %>
 </main>

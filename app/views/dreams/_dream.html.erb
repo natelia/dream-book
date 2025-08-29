@@ -1,7 +1,14 @@
-<div class="dream">
-  <%= link_to dream.name, dream_path(dream) %>
-  <div class="dream__actions">
-    <%= button_to "Delete", dream_path(dream), method: :delete, class: "btn btn--light" %>
-    <%= link_to "Edit", edit_dream_path(dream), class: "btn btn--light" %>
+<%= turbo_frame_tag dream do %>
+  <div class="dream">
+    <%= link_to dream.name, dream_path(dream), data: { turbo_frame: "_top" } %>
+    <div class="dream__actions">
+      <%= button_to "Delete",
+                    dream_path(dream),
+                    method: :delete,
+                    class: "btn btn--light" %>
+      <%= link_to "Edit",
+                  edit_dream_path(dream),
+                  class: "btn btn--light" %>
+    </div>
   </div>
-</div>
+<% end %>
