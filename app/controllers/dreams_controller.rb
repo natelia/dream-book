@@ -18,7 +18,7 @@ class DreamsController < ApplicationController
     if @dream.save
       redirect_to dreams_path, notice: "Dream was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class DreamsController < ApplicationController
     if @dream.update(dream_params)
       redirect_to dreams_path, notice: "Dream was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
